@@ -10,6 +10,9 @@ import joblib
 import time
 import os
 
+random_state = 42
+test_size = 0.1
+
 def group_by_length(lst):
     result = {}
     for length in range(1, len(lst) + 1):
@@ -22,7 +25,7 @@ def train_regression_with_columns(selected_columns,X,y,random_state):
     X = X[selected_columns]
     
     # 2. Split the Data
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=random_state)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
     
     # 3. Create and Train the Model
     model = LinearRegression()
@@ -90,9 +93,9 @@ print('y.shape::',y.shape)
 print('='*100)
 
 ### Loop training
-random_state = 42
+# random_state = 42
 
-selected_columns = list(X.columns)[:5]
+selected_columns = list(X.columns)
 grouped = group_by_length(selected_columns)
 i = 0
 for length, groups in grouped.items():
@@ -107,6 +110,7 @@ for length, groups in grouped.items():
         results['random_state'] = random_state
         results['time'] = time.time() - t
         results['features'] = g
+        results['test_size'] = test_size
         results['round'] = i
         results['no'] = ii
         print('results:',results)
@@ -114,7 +118,7 @@ for length, groups in grouped.items():
         
         # Save results to CSV
         results_df = pd.DataFrame([results])
-        file_path = f'results_all_possible_regression/feature15/features_{length}.csv'
+        file_path = f'results_all_possible_regression/feature15/randomstate{random_state}/features_{length}.csv'
         # Create the directory if it doesn't exist
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         if os.path.exists(file_path):

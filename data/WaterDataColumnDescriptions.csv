@@ -1,0 +1,105 @@
+1,id,strarr,N/A,ID
+2,raw_g_num,intarr,count,Number of Grounds Water Sources
+3,raw_g_aflow,fltarr,MGD,Average Ground Water Flow
+4,raw_g_dflow,fltarr,MGD,Design Ground Water Flow
+5,raw_g_mflow,fltarr,MGD,Maximum Ground Water Flow
+6,raw_s_num,intarr,count,Number of Surfaces Water Sources
+7,raw_s_aflow,fltarr,MGD,Average Surface Water Flow
+8,raw_s_dflow,fltarr,MGD,Design Surface Water Flow
+9,raw_s_mflow,fltarr,MGD,Maximum Surface Water Flow
+10,raw_p_num,intarr,count,Number of Purchased Sources
+11,raw_p_aflow,fltarr,MGD,Average Purchased Water Flow
+12,raw_g_depth,fltarr,FT,Average Well Depth
+13,raw_hp,fltarr,HP,Source Water Pumping HP
+14,raw_npump,intarr,count,Total Number of Pumps
+15,raw_g_antu,fltarr,NTU,Average Ground Turbidity
+16,raw_g_pntu,fltarr,NTU,Peak Ground Turbidity
+17,raw_s_antu,fltarr,NTU,Average Surface Turbidity
+18,raw_s_pntu,fltarr,NTU,Peak Surface Turbidity
+19,treat_algae,intarr,N/A,Algae Control
+20,treat_disinf,intarr,N/A,Disinfection
+21,treat_ox,intarr,N/A,Oxidation
+22,treat_iron,intarr,N/A,Iron Removal
+23,treat_mang,intarr,N/A,Manganese Removal
+24,treat_odor,intarr,N/A,Taste/Odor Control
+25,treat_TOC,intarr,N/A,TOC Removal
+26,treat_turb,intarr,N/A,Particulate/Turbidity Removal
+27,treat_soft,intarr,N/A,Softening
+28,treat_recarb,intarr,N/A,Recarbonation
+29,treat_organic,intarr,N/A,Organic
+30,treat_inorganic,intarr,N/A,Inorganic
+31,treat_radon,intarr,N/A,Radionuclide
+32,process_aerate,intarr,N/A,Aeration
+33,process_UV,intarr,N/A,Ultraviolet
+34,process_OZ,intarr,N/A,Ozone
+35,process_clar_up,intarr,N/A,Upflow Clarification
+36,process_clar_gravity,intarr,N/A,Gravity Clarification
+37,process_clar_daf,intarr,N/A,Dissolved Air Floatation Clarification
+38,process_floc,intarr,N/A,Flocculation
+39,process_filtr_direct,intarr,N/A,Direct Filtration
+40,process_filtr_sand,intarr,N/A,Slow Sand Filtration
+41,process_filtr_dual,intarr,N/A,Dual Stage Filtration
+42,process_filtr_rapid,intarr,N/A,Rapid Rate Filtration
+43,process_filtr_dearth,intarr,N/A,Diatomaceous earth Filtration
+44,process_filtr_press,intarr,N/A,Pressure Filtration
+45,process_mem_rosmos,intarr,N/A,Reverse Osmosis Membrane
+46,process_mem_micfiltr,intarr,N/A,Microfiltration Membrane
+47,process_mem_ultfiltr,intarr,N/A,Ultrafiltration Membrane
+48,process_mem_nanofiltr,intarr,N/A,Nanofiltration Membrane
+49,utility_nplants,intarr,N/A,Number of Treatment Plants
+50,res_none,intarr,N/A,No Treatment
+51,res_gravity,intarr,N/A,Gravity Thickening
+52,res_dewat_mech,intarr,N/A,Mechanical Dewatering
+53,res_cent,intarr,N/A,Centrifuge
+54,res_press_filtr,intarr,N/A,Residual Pressure Filtration
+55,res_vac_filtr,intarr,N/A,Vacuum Filtration
+56,res_bpress,intarr,N/A,Belt Press
+57,res_ppress,intarr,N/A,Plate & Frame Press
+58,res_dewat_nmech,intarr,N/A,Non-Mechanical Dewatering
+59,res_lagoon,intarr,N/A,Lagoon dewatering thickening
+60,res_sand,intarr,N/A,Sand Drying Bed
+61,res_frz,intarr,N/A,Freezing and Thawing
+62,res_weight,fltarr,LB/DAY,Total Average Daily Residuals
+63,distrib_pop,fltarr,count,Population of Service Area
+64,distrib_area,fltarr,SQM,Size of Service Area
+65,distrib_main,fltarr,MILES,Length of Water Mains
+66,distrib_high,fltarr,FT,High Elevation
+67,distrib_low,fltarr,FT,Low Elevation
+68,distrib_hp,fltarr,HP,Distribution Pumping HP
+69,distrib_npump,intarr,count,Number of Distribution Pumps
+70,distrib_storage,fltarr,MG,Total Storage Volume
+71,distrib_press,fltarr,PSI,Average Distribution Pressure
+72,distrib_nzones,intarr,count,Number of Distribution Zones
+73,distrib_lost,fltarr,%,Unaccounted for Treated Water
+74,raw_kwh,fltarr,KWH,Production Energy Use
+75,raw_kw,fltarr,KW,Production Energy Peak
+76,raw_cost,fltarr,$,Poduction Cost
+77,treat_kwh,fltarr,KWH,Treatment Energy Use
+78,treat_kw,fltarr,KW,Treatment Energy Peak
+79,treat_cost,fltarr,$,Treatment Energy Cost
+80,distrib_kwh,fltarr,KWH,Distribution Energy Use
+81,distrib_kw,fltarr,KW,Distribution Energy Peak
+82,distrib_cost,fltarr,$,Distribution Energy Cost
+83,utility_kwh,fltarr,KWH,Total Energy Use
+84,utility_kw,fltarr,KW,Total Energy Peak
+85,utility_cost,fltarr,$,Total Energy Cost
+86,floor_area,fltarr,SQFT,Total Building Area
+87,ngas_use,fltarr,THERMS,Natural Gas Use
+88,ngas_cost,fltarr,$,Natural Gas Cost
+89,pump_eng,intarr,N/A,Engine Driven Pumps
+90,pump_eng_hp,fltarr,HP,Engine Driven Pump HP
+91,pump_eng_fuel,strarr,N/A,Engine Driven Pump Fuel Type
+92,oenergy_purch,intarr,N/A,Purchased Energy
+93,oenergy_type,strarr,N/A,Purchased Energy Source
+94,oenergy_amount,strarr,N/A,Amount of Purchased Energy
+95,oenergy_cost,fltarr,$,Purcahsed Energy Cost
+96,check_util,intarr,N/A,Regularly Checked Utility Bills
+97,extra_event,intarr,N/A,Extraordinary Events
+98,notes,strarr,N/A,Additional Comments
+99,calc_flow,fltarr,MGD,Total Average Flow
+100,calc_NTU_avg,fltarr,NTU,Average raw turbidity
+101,calc_NTU_peak,fltarr,NTU,Peak raw turbidity
+102,calc_metals,intarr,N/A,Treatment for metals (iron mang)
+103,calc_contam,intarr,N/A,Treatment for contaminates (organic inorganic radon)
+104,calc_elev_change,fltarr,ft,Difference between highest and lowest system elevation
+105,calc_hp,fltarr,hp,Total system hp

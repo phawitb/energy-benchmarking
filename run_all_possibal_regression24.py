@@ -11,7 +11,7 @@ import time
 import os
 
 random_state = 42
-test_size = 0.1 
+test_size = 0.2
 
 def group_by_length(lst):
     result = {}

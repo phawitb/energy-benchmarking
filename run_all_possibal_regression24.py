@@ -103,7 +103,7 @@ for length, groups in grouped.items():
     for ii,g in enumerate(G):
         t = time.time()
         print(f"\nround={i} n_columns={length}::[{ii+1}/{len(G)}]::{g}")
-        results = train_regression_with_columns(selected_columns,X,y,random_state)
+        results = train_regression_with_columns(g,X,y,random_state)
         results['n_columns'] = length
         results['random_state'] = random_state
         results['time'] = time.time() - t

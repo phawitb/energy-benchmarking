@@ -20,7 +20,7 @@ def group_by_length(lst):
         result[length] = combinations
     return result
 
-def train_regression_with_columns(selected_columns,X,y,random_state):
+def train_regression_with_columns(g,X,y,random_state):
     # 1. Select columns
     X = X[selected_columns]
     

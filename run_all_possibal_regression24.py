@@ -70,16 +70,11 @@ selected_columns_15_and_y = ['raw_g_dflow','raw_g_mflow','raw_g_depth','raw_g_pn
 df = df[selected_columns_15_and_y]
 
 # List of columns to take the logarithm of
-columns_to_log = ['raw_g_dflow', 'raw_g_mflow','res_weight','distrib_area','distrib_main','distrib_storage','calc_flow','calc_NTU_peak','calc_hp','total_energy_use_kBtu']  # Replace with actual column names
-
-# Replace 0 with epsilon in the selected columns
-epsilon = math.ulp(1.0)
-df[columns_to_log] = df[columns_to_log].replace(0, epsilon)
-
-# Take the natural logarithm and create new columns
+columns_to_log = ['raw_g_dflow', 'raw_g_mflow','res_weight','distrib_area','distrib_main','distrib_storage','calc_flow','calc_NTU_peak','calc_hp','total_energy_use_kBtu']  
 for column in columns_to_log:
     new_column_name = f'ln_{column}'
-    df[new_column_name] = np.log(df[column])
+    df[new_column_name] = df[column].apply(lambda x: np.log1p(x))
+df = df.drop(columns=columns_to_log)
 
 # Create X,y
 X = df.drop(columns=['total_energy_use_kBtu','ln_total_energy_use_kBtu'])  # All columns except the target
@@ -103,7 +98,7 @@ for length, groups in grouped.items():
     for ii,g in enumerate(G):
         t = time.time()
         print(f"\nround={i} n_columns={length}::[{ii+1}/{len(G)}]::{g}")
-        results = train_regression_with_columns(g,X,y,random_state)
+        results = train_regression_with_columns(selected_columns,X,y,random_state)
         results['n_columns'] = length
         results['random_state'] = random_state
         results['time'] = time.time() - t

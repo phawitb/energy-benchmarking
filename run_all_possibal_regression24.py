@@ -20,6 +20,51 @@ def group_by_length(lst):
         result[length] = combinations
     return result
 
+def evaluate(y_test,y_pred_test,y_train,y_pred_train):
+    # 5. Evaluate the Model
+    mse_test = mean_squared_error(y_test, y_pred_test)
+    mae_test = mean_absolute_error(y_test, y_pred_test)
+    r2_test = r2_score(y_test, y_pred_test)
+
+    mse_train = mean_squared_error(y_train, y_pred_train)
+    mae_train = mean_absolute_error(y_train, y_pred_train)
+    r2_train = r2_score(y_train, y_pred_train)
+
+    # Calculate RMSE
+    rmse_test = np.sqrt(mse_test)
+    rmse_train = np.sqrt(mse_train)
+
+    # Calculate BIC and AIC
+    n = len(y_test)  # Number of observations
+    k = X.shape[1]   # Number of predictors (features)
+    bic_test = n * np.log(mse_test) + k * np.log(n)
+    aic_test = n * np.log(mse_test) + 2 * k
+
+    n = len(y_train)  # Number of observations
+    k = X.shape[1]   # Number of predictors (features)
+    bic_train = n * np.log(mse_train) + k * np.log(n)
+    aic_train = n * np.log(mse_train) + 2 * k
+
+    # Print evaluation metrics
+    # print(f'MSE: {mse}, RMSE: {rmse}, MAE: {mae}, R-squared: {r2}, BIC: {bic}, AIC: {aic}')
+    
+    result = {
+        'mse_test' : mse_test,
+        'rmse_test' : rmse_test,
+        'mae_test' : mae_test,
+        'r2_test' : r2_test,
+        'bic_test' : bic_test,
+        'aic_test' : aic_test,
+        'mse_train' : mse_train,
+        'rmse_train' : rmse_train,
+        'mae_train' : mae_train,
+        'r2_train' : r2_train,
+        'bic_train' : bic_train,
+        'aic_train' : aic_train,    
+    }
+
+    return result
+
 def train_regression_with_columns(selected_columns,X,y,random_state):
     # 1. Select columns
     X = X[selected_columns]
@@ -32,35 +77,10 @@ def train_regression_with_columns(selected_columns,X,y,random_state):
     model.fit(X_train, y_train)
     
     # 4. Make Predictions
-    y_pred = model.predict(X_test)
+    y_pred_test = model.predict(X_test)
+    y_pred_train = model.predict(X_train)
     
-    # 5. Evaluate the Model
-    mse = mean_squared_error(y_test, y_pred)
-    mae = mean_absolute_error(y_test, y_pred)
-    r2 = r2_score(y_test, y_pred)
-
-    # Calculate RMSE
-    rmse = np.sqrt(mse)
-
-    # Calculate BIC and AIC
-    n = len(y_test)  # Number of observations
-    k = X.shape[1]   # Number of predictors (features)
-
-    # BIC and AIC
-    bic = n * np.log(mse) + k * np.log(n)
-    aic = n * np.log(mse) + 2 * k
-
-    # Print evaluation metrics
-    print(f'MSE: {mse}, RMSE: {rmse}, MAE: {mae}, R-squared: {r2}, BIC: {bic}, AIC: {aic}')
-    
-    result = {
-        'mse' : mse,
-        'rmse' : rmse,
-        'mae' : mae,
-        'r2' : r2,
-        'bic' : bic,
-        'aic' : aic,    
-    }
+    result = evaluate(y_test,y_pred_test,y_train,y_pred_train)
     
     return result
 

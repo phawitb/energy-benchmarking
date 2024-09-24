@@ -70,16 +70,9 @@ selected_columns_15_and_y = ['raw_g_dflow','raw_g_mflow','raw_g_depth','raw_g_pn
 df = df[selected_columns_15_and_y]
 
 # List of columns to take the logarithm of
-columns_to_log = ['raw_g_dflow', 'raw_g_mflow','res_weight','distrib_area','distrib_main','distrib_storage','calc_flow','calc_NTU_peak','calc_hp','total_energy_use_kBtu']  # Replace with actual column names
-
-# Replace 0 with epsilon in the selected columns
-# epsilon = math.ulp(1.0)
-# df[columns_to_log] = df[columns_to_log].replace(0, epsilon)
-
-# Take the natural logarithm and create new columns
+columns_to_log = ['raw_g_dflow', 'raw_g_mflow','res_weight','distrib_area','distrib_main','distrib_storage','calc_flow','calc_NTU_peak','calc_hp','total_energy_use_kBtu']  
 for column in columns_to_log:
     new_column_name = f'ln_{column}'
-    # df[new_column_name] = np.log(df[column])
     df[new_column_name] = df[column].apply(lambda x: np.log1p(x))
 df = df.drop(columns=columns_to_log)
 
